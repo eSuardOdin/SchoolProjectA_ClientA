@@ -31,6 +31,7 @@
             loginLbl = new Label();
             disconnectBtn = new Button();
             bankAccountContainer = new FlowLayoutPanel();
+            createAccountBtn = new Button();
             SuspendLayout();
             // 
             // loginLbl
@@ -60,11 +61,21 @@
             bankAccountContainer.Size = new Size(595, 340);
             bankAccountContainer.TabIndex = 2;
             // 
+            // createAccountBtn
+            // 
+            createAccountBtn.Location = new Point(12, 81);
+            createAccountBtn.Name = "createAccountBtn";
+            createAccountBtn.Size = new Size(111, 40);
+            createAccountBtn.TabIndex = 3;
+            createAccountBtn.Text = "Créer un compte en banque";
+            createAccountBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(createAccountBtn);
             Controls.Add(bankAccountContainer);
             Controls.Add(disconnectBtn);
             Controls.Add(loginLbl);
@@ -80,5 +91,6 @@
         private Label loginLbl;
         private Button disconnectBtn;
         private FlowLayoutPanel bankAccountContainer;
+        private Button createAccountBtn;
     }
 }

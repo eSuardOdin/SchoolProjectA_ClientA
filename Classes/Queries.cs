@@ -75,7 +75,7 @@ namespace SchoolProjectA_ClientA.Classes
             {
                 string jsonData = JsonConvert.SerializeObject(moni);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                MessageBox.Show(jsonData);
+
                 // POST
                 HttpResponseMessage res = await client.PostAsync("http://192.168.30.10:5000/moni", content);
 
