@@ -68,6 +68,11 @@ namespace SchoolProjectA_ClientA.Classes
             return checkedMoni;
         }
 
+        /// <summary>
+        /// Post d'un moni
+        /// </summary>
+        /// <param name="moni">Moni à post vers l'API</param>
+        /// <returns>Le moni POST (null si erreur)</returns>
         public static async Task<Moni> PostMoni(Moni moni)
         {
             using HttpClient client = new HttpClient();
@@ -91,6 +96,29 @@ namespace SchoolProjectA_ClientA.Classes
 
             }
             catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+
+        public static async Task<List<BankAccount>> GetMoniAccounts(int id)
+        {
+            using HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            try
+            {
+                HttpResponseMessage res = await client.GetAsync($"http://192.168.30.10:5000/moni/{id}/accounts");
+                if (res.IsSuccessStatusCode)
+                {
+                    List<BankAccount> accounts = await res.Content.ReadFromJsonAsync<List<BankAccount>>();
+                    return accounts;
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }

@@ -55,11 +55,16 @@
             // 
             // bankAccountContainer
             // 
+            bankAccountContainer.AutoScroll = true;
+            bankAccountContainer.BackColor = SystemColors.ControlLight;
+            bankAccountContainer.BorderStyle = BorderStyle.Fixed3D;
             bankAccountContainer.FlowDirection = FlowDirection.TopDown;
             bankAccountContainer.Location = new Point(165, 81);
             bankAccountContainer.Name = "bankAccountContainer";
-            bankAccountContainer.Size = new Size(595, 340);
+            bankAccountContainer.Padding = new Padding(2);
+            bankAccountContainer.Size = new Size(460, 340);
             bankAccountContainer.TabIndex = 2;
+            bankAccountContainer.WrapContents = false;
             // 
             // createAccountBtn
             // 

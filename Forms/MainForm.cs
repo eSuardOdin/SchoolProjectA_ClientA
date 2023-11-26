@@ -1,4 +1,5 @@
 ﻿using SchoolProjectA_ClientA.Classes;
+using SchoolProjectA_ClientA.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,14 +23,43 @@ namespace SchoolProjectA_ClientA.Forms
             MyConnexionForm = myConnexionForm;
             this.Text = $"MoniWatch - {MyMoni.MoniLogin}";
             loginLbl.Text = $"Utilisateur : {MyMoni.LastName} {MyMoni.FirstName}";
+            PopulateForm();
         }
 
+
+
+        private async void PopulateForm()
+        {
+            List<BankAccount> accounts = await Queries.GetMoniAccounts(MyMoni.MoniId);
+            if (accounts != null)
+            {
+                foreach (BankAccount account in accounts)
+                {
+                    BankAccountControl ctrl = new(account);
+                    ctrl.BackColor = SystemColors.ControlLightLight;
+                    bankAccountContainer.Controls.Add(ctrl);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Disconnect user and go back to connexion form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void disconnectBtn_Click(object sender, EventArgs e)
         {
             if (MyConnexionForm != null && !MyConnexionForm.Visible) MyConnexionForm.Show();
             this.Dispose();
         }
 
+
+        /// <summary>
+        /// Quit program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConnexionForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (MyConnexionForm != null) MyConnexionForm.Dispose();

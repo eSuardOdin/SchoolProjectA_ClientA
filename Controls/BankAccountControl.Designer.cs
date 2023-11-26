@@ -75,12 +75,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(balanceLbl);
             Controls.Add(label1);
             Controls.Add(manageBtn);
             Controls.Add(accountNameLbl);
             Name = "BankAccountControl";
-            Size = new Size(424, 98);
+            Size = new Size(422, 96);
             ResumeLayout(false);
             PerformLayout();
         }
