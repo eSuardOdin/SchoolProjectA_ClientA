@@ -21,6 +21,14 @@ namespace SchoolProjectA_ClientA.Forms
             MyMainForm = myMainForm;
             MyBankAccount = myBankAccount;
             bankAccountNameLbl.Text = MyBankAccount.BankAccountLabel;
+            // Headers liste
+            /*
+            transactionsList.Columns.Add("Transaction", 100);
+            transactionsList.Columns.Add("Date", 150);
+            transactionsList.Columns.Add("Montant", 100);
+            transactionsList.Columns.Add("Detail", 100);
+            */
+
         }
 
         private void mainMenuBtn_Click(object sender, EventArgs e)

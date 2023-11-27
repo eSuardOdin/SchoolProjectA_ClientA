@@ -30,6 +30,12 @@
         {
             bankAccountNameLbl = new Label();
             mainMenuBtn = new Button();
+            addTransactionBtn = new Button();
+            transactionsList = new ListView();
+            transacLabelCol = new ColumnHeader();
+            transacDateCol = new ColumnHeader();
+            transacAmountCol = new ColumnHeader();
+            transacDetailCol = new ColumnHeader();
             SuspendLayout();
             // 
             // bankAccountNameLbl
@@ -44,7 +50,7 @@
             // 
             // mainMenuBtn
             // 
-            mainMenuBtn.Location = new Point(713, 415);
+            mainMenuBtn.Location = new Point(12, 12);
             mainMenuBtn.Name = "mainMenuBtn";
             mainMenuBtn.Size = new Size(75, 23);
             mainMenuBtn.TabIndex = 1;
@@ -52,11 +58,54 @@
             mainMenuBtn.UseVisualStyleBackColor = true;
             mainMenuBtn.Click += mainMenuBtn_Click;
             // 
+            // addTransactionBtn
+            // 
+            addTransactionBtn.Location = new Point(12, 63);
+            addTransactionBtn.Name = "addTransactionBtn";
+            addTransactionBtn.Size = new Size(89, 46);
+            addTransactionBtn.TabIndex = 3;
+            addTransactionBtn.Text = "Ajouter une transaction";
+            addTransactionBtn.UseVisualStyleBackColor = true;
+            // 
+            // transactionsList
+            // 
+            transactionsList.Columns.AddRange(new ColumnHeader[] { transacLabelCol, transacDateCol, transacAmountCol, transacDetailCol });
+            transactionsList.Location = new Point(107, 63);
+            transactionsList.Name = "transactionsList";
+            transactionsList.Size = new Size(650, 335);
+            transactionsList.TabIndex = 4;
+            transactionsList.UseCompatibleStateImageBehavior = false;
+            transactionsList.View = View.Details;
+            // 
+            // transacLabelCol
+            // 
+            transacLabelCol.Text = "Transaction";
+            transacLabelCol.Width = 100;
+            // 
+            // transacDateCol
+            // 
+            transacDateCol.Text = "Date";
+            transacDateCol.TextAlign = HorizontalAlignment.Center;
+            transacDateCol.Width = 100;
+            // 
+            // transacAmountCol
+            // 
+            transacAmountCol.Text = "Montant";
+            transacAmountCol.TextAlign = HorizontalAlignment.Center;
+            transacAmountCol.Width = 80;
+            // 
+            // transacDetailCol
+            // 
+            transacDetailCol.Text = "Détail";
+            transacDetailCol.TextAlign = HorizontalAlignment.Center;
+            // 
             // BankAccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(transactionsList);
+            Controls.Add(addTransactionBtn);
             Controls.Add(mainMenuBtn);
             Controls.Add(bankAccountNameLbl);
             MaximizeBox = false;
@@ -71,5 +120,11 @@
 
         private Label bankAccountNameLbl;
         private Button mainMenuBtn;
+        private Button addTransactionBtn;
+        private ListView transactionsList;
+        private ColumnHeader transacLabelCol;
+        private ColumnHeader transacDateCol;
+        private ColumnHeader transacAmountCol;
+        private ColumnHeader transacDetailCol;
     }
 }
