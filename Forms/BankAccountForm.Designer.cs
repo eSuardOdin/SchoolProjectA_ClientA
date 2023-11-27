@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             bankAccountNameLbl = new Label();
+            mainMenuBtn = new Button();
             SuspendLayout();
             // 
             // bankAccountNameLbl
@@ -41,15 +42,27 @@
             bankAccountNameLbl.TabIndex = 0;
             bankAccountNameLbl.Text = "label1";
             // 
+            // mainMenuBtn
+            // 
+            mainMenuBtn.Location = new Point(713, 415);
+            mainMenuBtn.Name = "mainMenuBtn";
+            mainMenuBtn.Size = new Size(75, 23);
+            mainMenuBtn.TabIndex = 1;
+            mainMenuBtn.Text = "Menu";
+            mainMenuBtn.UseVisualStyleBackColor = true;
+            mainMenuBtn.Click += mainMenuBtn_Click;
+            // 
             // BankAccountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(mainMenuBtn);
             Controls.Add(bankAccountNameLbl);
             MaximizeBox = false;
             Name = "BankAccountForm";
             Text = "Compte en banque";
+            FormClosed += BankAccountForm_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -57,5 +70,6 @@
         #endregion
 
         private Label bankAccountNameLbl;
+        private Button mainMenuBtn;
     }
 }

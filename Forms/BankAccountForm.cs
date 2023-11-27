@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolProjectA_ClientA.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace SchoolProjectA_ClientA.Forms
 {
     public partial class BankAccountForm : Form
     {
-        public BankAccountForm()
+        private MainForm MyMainForm { get; set; }
+        private BankAccount MyBankAccount { get; set; }
+        public BankAccountForm(MainForm myMainForm, BankAccount myBankAccount)
         {
             InitializeComponent();
+            MyMainForm = myMainForm;
+            MyBankAccount = myBankAccount;
+            bankAccountNameLbl.Text = MyBankAccount.BankAccountLabel;
+        }
+
+        private void mainMenuBtn_Click(object sender, EventArgs e)
+        {
+            if (MyMainForm != null && !MyMainForm.Visible)
+            {
+                MyMainForm.Show();
+                Dispose();
+            }
+        }
+
+        private void BankAccountForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (MyMainForm != null) MyMainForm.Dispose();
         }
     }
 }

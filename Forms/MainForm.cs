@@ -27,7 +27,9 @@ namespace SchoolProjectA_ClientA.Forms
         }
 
 
-
+        /// <summary>
+        /// Ajout des controls de compte en banque
+        /// </summary>
         private async void PopulateForm()
         {
             List<BankAccount> accounts = await Queries.GetMoniAccounts(MyMoni.MoniId);
@@ -36,6 +38,7 @@ namespace SchoolProjectA_ClientA.Forms
                 foreach (BankAccount account in accounts)
                 {
                     BankAccountControl ctrl = new(account);
+                    ctrl.Tag = account;
                     ctrl.BackColor = SystemColors.ControlLightLight;
                     bankAccountContainer.Controls.Add(ctrl);
                 }

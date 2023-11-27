@@ -1,4 +1,5 @@
 ﻿using SchoolProjectA_ClientA.Classes;
+using SchoolProjectA_ClientA.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,13 @@ namespace SchoolProjectA_ClientA.Controls
             balanceLbl.Text = MyBankAccount.BankAccountBalance.ToString() + "€";
             balanceLbl.ForeColor = MyBankAccount.BankAccountBalance > 0 ? Color.Green : Color.Red;
             accountNameLbl.Text = MyBankAccount.BankAccountLabel;
+        }
+
+        private void manageBtn_Click(object sender, EventArgs e)
+        {
+            BankAccountForm baForm = new((MainForm)ParentForm, MyBankAccount);
+            baForm.Show();
+            ParentForm.Hide();
         }
     }
 }

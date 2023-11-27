@@ -52,6 +52,7 @@
             manageBtn.TabIndex = 1;
             manageBtn.Text = "Voir";
             manageBtn.UseVisualStyleBackColor = true;
+            manageBtn.Click += manageBtn_Click;
             // 
             // label1
             // 
