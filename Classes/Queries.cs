@@ -26,7 +26,7 @@ namespace SchoolProjectA_ClientA.Classes
                 new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                HttpResponseMessage res = await client.GetAsync("http://192.168.30.10:5000/moni");
+                HttpResponseMessage res = await client.GetAsync("http://raspberry:5000/moni"); //http://192.168.30.10:5000/moni
                 if (res.IsSuccessStatusCode)
                 {
                     List<Moni> monis = await res.Content.ReadFromJsonAsync<List<Moni>>();
@@ -54,7 +54,7 @@ namespace SchoolProjectA_ClientA.Classes
                 new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                HttpResponseMessage res = await client.GetAsync($"http://192.168.30.10:5000/moni/{moni.MoniId}?moniPwd={pwd}");
+                HttpResponseMessage res = await client.GetAsync($"http://raspberry:5000/moni/{moni.MoniId}?moniPwd={pwd}");
                 if (res.IsSuccessStatusCode)
                 {
                     //List<Moni> monis = await res.Content.ReadFromJsonAsync<List<Moni>>();
@@ -82,7 +82,7 @@ namespace SchoolProjectA_ClientA.Classes
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 // POST
-                HttpResponseMessage res = await client.PostAsync("http://192.168.30.10:5000/moni", content);
+                HttpResponseMessage res = await client.PostAsync("http://raspberry:5000/moni", content);
 
                 if(res.IsSuccessStatusCode)
                 {
@@ -111,7 +111,7 @@ namespace SchoolProjectA_ClientA.Classes
                 new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                HttpResponseMessage res = await client.GetAsync($"http://192.168.30.10:5000/moni/{id}/accounts");
+                HttpResponseMessage res = await client.GetAsync($"http://raspberry:5000/moni/{id}/accounts");
                 if (res.IsSuccessStatusCode)
                 {
                     List<BankAccount> accounts = await res.Content.ReadFromJsonAsync<List<BankAccount>>();
