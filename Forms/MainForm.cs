@@ -35,8 +35,9 @@ namespace SchoolProjectA_ClientA.Forms
         /// <summary>
         /// Ajout des controls de compte en banque
         /// </summary>
-        private async void PopulateForm()
+        public async void PopulateForm()
         {
+            bankAccountContainer.Controls.Clear();
             List<BankAccount> accounts = await Queries.GetMoniAccounts(MyMoni.MoniId);
             if (accounts != null)
             {

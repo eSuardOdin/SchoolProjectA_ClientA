@@ -68,6 +68,7 @@ namespace SchoolProjectA_ClientA.Forms
                 if(res != null)
                 {
                     MessageBox.Show($"Le compte {res.BankAccountLabel} a été créé avec succès", "Création effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MyMainForm.PopulateForm();
                     MyMainForm.Enabled = true;
                     Dispose();
                 }

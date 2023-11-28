@@ -38,7 +38,7 @@
             // 
             accountNameLbl.AutoSize = true;
             accountNameLbl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            accountNameLbl.Location = new Point(196, 12);
+            accountNameLbl.Location = new Point(13, 12);
             accountNameLbl.Name = "accountNameLbl";
             accountNameLbl.Size = new Size(40, 15);
             accountNameLbl.TabIndex = 0;
