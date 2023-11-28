@@ -70,5 +70,11 @@ namespace SchoolProjectA_ClientA.Forms
         {
             if (MyConnexionForm != null) MyConnexionForm.Dispose();
         }
+
+        private void createAccountBtn_Click(object sender, EventArgs e)
+        {
+            BankAccountCreationForm creationForm = new(this);
+            creationForm.Show();
+        }
     }
 }

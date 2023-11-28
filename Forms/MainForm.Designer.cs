@@ -74,6 +74,7 @@
             createAccountBtn.TabIndex = 3;
             createAccountBtn.Text = "Créer un compte en banque";
             createAccountBtn.UseVisualStyleBackColor = true;
+            createAccountBtn.Click += createAccountBtn_Click;
             // 
             // MainForm
             // 
