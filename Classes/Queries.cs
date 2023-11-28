@@ -12,6 +12,14 @@ namespace SchoolProjectA_ClientA.Classes
 {
     public static class Queries
     {
+
+
+//#################################################
+//
+//          Monies
+//
+//#################################################
+
         /// <summary>
         /// Trie les monis pour voir s'il en existe un avec le login du champ de login
         /// </summary>
@@ -102,6 +110,14 @@ namespace SchoolProjectA_ClientA.Classes
             return null;
         }
 
+
+
+//#################################################
+//
+//          Bank Accounts
+//
+//#################################################
+
         /// <summary>
         /// GET tous les comptes en banque d'un Moni
         /// </summary>
@@ -130,6 +146,41 @@ namespace SchoolProjectA_ClientA.Classes
         }
 
 
+        public static async Task<BankAccount> PostAccount(BankAccount account)
+        {
+            using HttpClient client = new HttpClient();
+            try
+            {
+                string jsonData = JsonConvert.SerializeObject(account);
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                // POST
+                HttpResponseMessage res = await client.PostAsync("http://raspberry:5000/account", content);
+
+                if (res.IsSuccessStatusCode)
+                {
+                    return account;
+                }
+                else
+                {
+                    var errorResponse = await res.Content.ReadAsStringAsync();
+                    MessageBox.Show(errorResponse);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
+
+        //#################################################
+        //
+        //          Transactions
+        //
+        //#################################################
 
         public static async Task<List<Transaction>> GetAccountTransactions(int accountId)
         {
