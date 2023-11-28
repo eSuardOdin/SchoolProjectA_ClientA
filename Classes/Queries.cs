@@ -102,7 +102,11 @@ namespace SchoolProjectA_ClientA.Classes
             return null;
         }
 
-
+        /// <summary>
+        /// GET tous les comptes en banque d'un Moni
+        /// </summary>
+        /// <param name="id">Id du Moni</param>
+        /// <returns></returns>
         public static async Task<List<BankAccount>> GetMoniAccounts(int id)
         {
             using HttpClient client = new HttpClient();
@@ -124,5 +128,30 @@ namespace SchoolProjectA_ClientA.Classes
             }
             return null;
         }
+
+
+
+        public static async Task<List<Transaction>> GetAccountTransactions(int accountId)
+        {
+            using HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            try
+            {
+                HttpResponseMessage res = await client.GetAsync($"http://raspberry:5000/account/{accountId}/transactions");
+                if (res.IsSuccessStatusCode)
+                {
+                    List<Transaction> transactions = await res.Content.ReadFromJsonAsync<List<Transaction>>();
+                    return transactions;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return null;
+        }
+
     }
 }

@@ -61,6 +61,8 @@ namespace SchoolProjectA_ClientA
                 else
                 {
                     MainForm main = new(MyMoni, this);
+                    main.StartPosition = FormStartPosition.Manual;
+                    main.Location = this.PointToScreen(Point.Empty);
 
                     // Reset du moni et des champs d'input
                     MyMoni = null;

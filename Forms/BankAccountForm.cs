@@ -28,8 +28,23 @@ namespace SchoolProjectA_ClientA.Forms
             transactionsList.Columns.Add("Montant", 100);
             transactionsList.Columns.Add("Detail", 100);
             */
-
+            PopulateForm();
         }
+
+
+        private async void PopulateForm()
+        {
+            List<Transaction> transactions = await Queries.GetAccountTransactions(MyBankAccount.BankAccountId);
+            if(transactions != null)
+            {
+                foreach(Transaction transaction in transactions)
+                {
+                    transaction.ToListItem(transactionsList);
+                }
+            }
+        }
+
+
 
         private void mainMenuBtn_Click(object sender, EventArgs e)
         {

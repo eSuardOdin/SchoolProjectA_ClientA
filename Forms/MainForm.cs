@@ -53,7 +53,10 @@ namespace SchoolProjectA_ClientA.Forms
         /// <param name="e"></param>
         private void disconnectBtn_Click(object sender, EventArgs e)
         {
-            if (MyConnexionForm != null && !MyConnexionForm.Visible) MyConnexionForm.Show();
+            if (MyConnexionForm != null && !MyConnexionForm.Visible)
+            {
+                MyConnexionForm.Show();
+            }
             this.Dispose();
         }
 
