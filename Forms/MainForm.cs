@@ -12,6 +12,11 @@ using System.Windows.Forms;
 
 namespace SchoolProjectA_ClientA.Forms
 {
+    /// <summary>
+    /// Classe gérant le formulaire principal.
+    /// À noter que la classe ne contient pas de List BankAccount, je préfère envoyer des requètes que de garder
+    /// en mémoire un nombre d'info potentiellement trop élevé.
+    /// </summary>
     public partial class MainForm : Form
     {
         private Moni MyMoni { get; set; }
@@ -73,7 +78,7 @@ namespace SchoolProjectA_ClientA.Forms
 
         private void createAccountBtn_Click(object sender, EventArgs e)
         {
-            BankAccountCreationForm creationForm = new(this);
+            BankAccountCreationForm creationForm = new(this, MyMoni.MoniId);
             creationForm.Show();
         }
     }

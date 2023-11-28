@@ -48,6 +48,8 @@
             // 
             accountBalanceTBox.DecimalPlaces = 2;
             accountBalanceTBox.Location = new Point(121, 85);
+            accountBalanceTBox.Maximum = new decimal(new int[] { 65000, 0, 0, 0 });
+            accountBalanceTBox.Minimum = new decimal(new int[] { 65000, 0, 0, int.MinValue });
             accountBalanceTBox.Name = "accountBalanceTBox";
             accountBalanceTBox.Size = new Size(120, 23);
             accountBalanceTBox.TabIndex = 1;
@@ -78,6 +80,7 @@
             createAccountBtn.TabIndex = 4;
             createAccountBtn.Text = "Créer";
             createAccountBtn.UseVisualStyleBackColor = true;
+            createAccountBtn.Click += createAccountBtn_Click;
             // 
             // BankAccountCreationForm
             // 
